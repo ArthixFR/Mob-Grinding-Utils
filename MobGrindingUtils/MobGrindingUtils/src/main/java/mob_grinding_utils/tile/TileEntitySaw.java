@@ -13,6 +13,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.ItemStackHelper;
@@ -72,7 +73,7 @@ public class TileEntitySaw extends TileEntityInventoryHelper implements ITickabl
 			Entity entity = list.get(i);
 			if (entity != null) {
 				if (entity instanceof LivingEntity) {
-					MGUFakePlayer fakePlayer = MGUFakePlayer.get((ServerWorld)getWorld(), this.pos.getX(), -100D, this.pos.getZ()).get();
+					MGUFakePlayer fakePlayer = MGUFakePlayer.get((ServerWorld)getWorld(), this.pos.getX(), this.pos.getY(), this.pos.getZ()).get();
 					ItemStack tempSword = new ItemStack(ModItems.NULL_SWORD.get(), 1);
 
 					if(!tempSword.hasTag())
